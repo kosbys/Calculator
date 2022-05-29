@@ -81,23 +81,34 @@ function addOperator(operator) {
           calcMemory.b
         );
         displayNumber(result, mainDisplay);
+        displayNumber(``, topDisplay);
         calcMemory.a = result;
         calcMemory.b = 0;
+        calcMemory.operation = ``;
+        resetNums(calcMemory.currentNum);
     }
-  } else if (operator == "invert") {
-    calcMemory.a *= -1;
-    if (![...topDisplay.innerText].includes(calcMemory.a)) {
-      displayNumber(calcMemory.a, topDisplay);
-    } else {
-      displayNumber(calcMemory.a, mainDisplay);
-    }
+  } else if (operator == `clear`) {
+    initCalc();
   } else if (calcMemory.operation == "") {
     calcMemory.operation = operator;
     num = `${calcMemory.a} ${calcMemory.operation}`;
     displayNumber(num, topDisplay);
     displayNumber(calcMemory.b, mainDisplay);
-    calcMemory.currentNum.splice(0, calcMemory.currentNum.length);
+    resetNums(calcMemory.currentNum);
   }
+}
+
+function resetNums(nums) {
+  nums.splice(0, nums.length);
+}
+
+function initCalc() {
+  resetNums(calcMemory.currentNum);
+  calcMemory.a = 0;
+  calcMemory.b = 0;
+  calcMemory.operation = ``;
+  displayNumber(0, mainDisplay);
+  displayNumber(``, topDisplay);
 }
 
 function displayNumber(number, display) {
