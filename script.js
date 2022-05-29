@@ -57,10 +57,10 @@ let calcMemory = {
 function updateDigits(nums, digit) {
   nums.push(digit.value);
 
-  displayNumber(baseConvert(calcMemory.currentNum));
+  displayNumber(baseConvert(calcMemory.currentNum), display);
 }
 
-function displayNumber(number) {
+function displayNumber(number, display) {
   display.innerText = number;
 }
 
