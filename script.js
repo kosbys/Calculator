@@ -12,6 +12,7 @@ function operate(operator, a, b) {
 }
 
 /* Basic operations */
+
 function add(a, b) {
   return a + b;
 }
@@ -38,21 +39,16 @@ function roundPrecised(number, precision) {
   return Math.round(number * power) / power;
 }
 
-container = document.querySelector(`.container`);
-digits = document.querySelectorAll(`.digit`);
-display = document.querySelector(`.display`);
+const container = document.querySelector(`.container`);
+const digits = document.querySelectorAll(`.digit`);
+const display = document.querySelector(`.display`);
+const operators = document.querySelectorAll(`.operator`);
 
-nums = [];
+let nums = [];
 
-let calculateDisplay = [...digits].map((digit) => {
-  digit.addEventListener("click", () => {
-    if (nums.length == 0) {
-      nums.push(digit.value);
-      display.innerText = digit.value;
-    } else {
-      nums.push(digit.value);
-      display.innerText = baseConvert(nums);
-    }
+[...digits].map((digit) => {
+  digit.addEventListener(`click`, () => {
+    displayDigits(nums, digit);
   });
 });
 
@@ -63,4 +59,14 @@ function baseConvert(array) {
     total += element * exp;
   });
   return total;
+}
+
+function displayDigits(nums, digit) {
+  if (nums.length == 0) {
+    nums.push(digit.value);
+    display.innerText = digit.value;
+  } else {
+    nums.push(digit.value);
+    display.innerText = baseConvert(nums);
+  }
 }
