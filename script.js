@@ -10,6 +10,8 @@ function operate(operator, a, b) {
       return divide(a, b);
     case "exp":
       return exponent(a, b);
+    case "root":
+      return root(b, a);
   }
 }
 
@@ -28,11 +30,15 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-  return roundPrecised(a / b, 3);
+  return roundPrecised(a / b, 5);
 }
 
 function exponent(a, b) {
   return a ** b;
+}
+
+function root(root, b) {
+  return roundPrecised(Math.pow(b, 1 / root), 5);
 }
 
 function roundPrecised(number, precision) {
@@ -89,6 +95,7 @@ function addOperator(operator) {
     }
   } else if (operator == `clear`) {
     initCalc();
+  } else if (operator == `delete`) {
   } else if (calcMemory.operation == "") {
     calcMemory.operation = operator;
     num = `${calcMemory.a} ${calcMemory.operation}`;

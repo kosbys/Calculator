@@ -23,6 +23,10 @@ body {
   background-color: #1c78d3;
 }
 
+a {
+  opacity: 0;
+}
+
 button {
   padding: 0px;
 }
@@ -83,7 +87,8 @@ button {
   background: #063852;
 }
 
-.operator {
+.operator,
+.github {
   display: inline-block;
   text-align: center;
   align-content: center;
@@ -96,11 +101,23 @@ button {
   line-height: 1.15;
   font-size: 42px;
 }
-.operator:hover {
+.operator:hover,
+.github:hover {
   transition: all 0.1s ease;
   box-shadow: 0 0 0 0 #fff, 0 0 0 3px #011a27;
   color: #e6df44;
   background: #34675c;
+}
+
+#github {
+  justify-items: center;
+  background-image: url(icons/bug.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#github:hover {
+  background-image: url(icons/bug-hover.svg);
 }
 
 #add {
