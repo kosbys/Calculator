@@ -26,7 +26,7 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-  return roundPrecised(a / b, 2);
+  return roundPrecised(a / b, 3);
 }
 
 function square(a) {
@@ -40,33 +40,48 @@ function roundPrecised(number, precision) {
 }
 
 const container = document.querySelector(`.container`);
+
 const digits = document.querySelectorAll(`.digit`);
+
 const display = document.querySelector(`.display`);
+
 const operators = document.querySelectorAll(`.operator`);
 
-let nums = [];
+let calcMemory = {
+  currentNum: [],
+  a: 0,
+  b: 0,
+  operation: ``,
+};
+
+function updateDigits(nums, digit) {
+  nums.push(digit.value);
+
+  displayNumber(baseConvert(calcMemory.currentNum));
+}
+
+function displayNumber(number) {
+  display.innerText = number;
+}
 
 [...digits].map((digit) => {
   digit.addEventListener(`click`, () => {
-    displayDigits(nums, digit);
+    updateDigits(calcMemory.currentNum, digit);
+  });
+});
+
+[...operators].map((operator) => {
+  operator.addEventListener(`click`, () => {
+    addOperator(operator.value);
   });
 });
 
 function baseConvert(array) {
   let total = 0;
   array.forEach((element, i) => {
-    exp = 10 ** i;
+    exp = 10 ** (array.length - i - 1);
+
     total += element * exp;
   });
   return total;
-}
-
-function displayDigits(nums, digit) {
-  if (nums.length == 0) {
-    nums.push(digit.value);
-    display.innerText = digit.value;
-  } else {
-    nums.push(digit.value);
-    display.innerText = baseConvert(nums);
-  }
 }
