@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Arvo&display=swap");
+
+body {
+  font-family: "Arvo", serif;
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  background-color: #1c78d3;
+}
+
+button {
+  padding: 0px;
+}
+
+.container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(4, 80px);
+  grid-template-rows: repeat(6, 80px);
+  margin-top: 10%;
+  gap: 15px;
+  border: 10px solid black;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: #275362;
+}
+
+.display {
+  text-align: right;
+  border-bottom: 10px solid black;
+  grid-column: 1 / span 4;
+  font-size: 60px;
+  color: #f0810f;
+  padding-right: 5px;
+}
+
+.zero {
+  grid-column: 1 / span 2;
+}
+
+.digit {
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  border: 2px solid #000;
+  border-radius: 3px;
+  color: #e6df44;
+  background: #34675c;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 28px;
+  text-align: center;
+  transition-duration: 0.15s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.digit:hover {
+  color: #f0810f;
+  background: #063852;
+}
+
+.operator {
+  display: inline-block;
+  text-align: center;
+  align-content: center;
+  outline: none;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 0;
+  color: #f0810f;
+  background: #063852;
+  line-height: 1.15;
+  font-size: 42px;
+}
+.operator:hover {
+  transition: all 0.1s ease;
+  box-shadow: 0 0 0 0 #fff, 0 0 0 3px #011a27;
+  color: #e6df44;
+  background: #34675c;
+}
+
+#add {
+  justify-items: center;
+  background-image: url(icons/add.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#add:hover {
+  background-image: url(icons/add-hover.svg);
+}
+
+#minus {
+  justify-items: center;
+  background-image: url(icons/minus.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#minus:hover {
+  background-image: url(icons/minus-hover.svg);
+}
+
+/* #F0810F
+#E6DF44 */

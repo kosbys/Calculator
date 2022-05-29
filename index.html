@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculator</title>
-</head>
-<body>
-    <div></div>
-</body>
+  </head>
+  <body>
+    <div class="container">
+      <div class="display">0</div>
+      <button value="clear" class="operator">AC</button>
+      <button value="delete" class="operator">C</button>
+      <button value="square" class="operator">x<sup>2</sup></button>
+      <button value="/" id="divide" class="operator">÷</button>
+      <button value="7" class="digit">7</button>
+      <button value="8" class="digit">8</button>
+      <button value="9" class="digit">9</button>
+      <button value="+" id="add" class="operator"></button>
+      <button value="4" class="digit">4</button>
+      <button value="5" class="digit">5</button>
+      <button value="6" class="digit">6</button>
+      <button value="-" id="minus" class="operator"></button>
+      <button value="1" class="digit">1</button>
+      <button value="2" class="digit">2</button>
+      <button value="3" class="digit">3</button>
+      <button value="*" class="operator">*</button>
+      <button value="0" class="zero digit">0</button>
+      <button value="=" class="operator">=</button>
+
+      <button value="decimal" class="operator">.</button>
+    </div>
+  </body>
 </html>
