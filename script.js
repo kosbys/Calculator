@@ -44,20 +44,23 @@ display = document.querySelector(`.display`);
 
 nums = [];
 
-let x = [...digits].map((digit) => {
+let calculateDisplay = [...digits].map((digit) => {
   digit.addEventListener("click", () => {
     if (nums.length == 0) {
       nums.push(digit.value);
       display.innerText = digit.value;
     } else {
-        nums.push(digit.value);
-        display.innerText = nums.reduce((total, num, i) => {
-            /* reduce the sum of the array to be each digit times 10^i */
-            console.log(`index ${i}`);
-            console.log(`number ${num}`);
-
-            return num * i;
-        });
+      nums.push(digit.value);
+      display.innerText = baseConvert(nums);
     }
   });
 });
+
+function baseConvert(array) {
+  let total = 0;
+  array.forEach((element, i) => {
+    exp = 10 ** i;
+    total += element * exp;
+  });
+  return total;
+}
