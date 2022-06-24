@@ -1,3 +1,3 @@
 # calculator
 
-https://kosbys.github.io/calculator/
+https://kosbys.github.io/Calculator/
